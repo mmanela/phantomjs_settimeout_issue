@@ -61,9 +61,9 @@ window.setTimeout = function () { console.log("PATCHED"); }
 ```
 
 
-## Full Repro
+## Runnable Repro
 
-This repo contains a phantomJS application (phantom.js) which will demonstrate this issue. 
+This repro contains a phantomJS application (phantom.js) which will demonstrate this issue. 
 
 
 ```
