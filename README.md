@@ -38,7 +38,7 @@ window.setTimeout = function setTimeout() {
 ```
 
 
-3. Tne call to check the third time will __not__ output the contents of the monkey patched function. It will still contain the native one. THe odd thing is if you call the check() method only once (or not at all) before your patched setTimeout then it will output the expected value. For example:
+3. Then call to check the third time will __not__ output the contents of the monkey patched function. It will still contain the native one. THe odd thing is if you call the check() method only once (or not at all) before your patched setTimeout then it will output the expected value. For example:
 CODE:
 ```
 function check() {
