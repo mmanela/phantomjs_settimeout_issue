@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SetTimeout Phantom Repro</title>
+
+<script type="text/javascript">
+	
+
+// This method is called 3 times
+function check1() {
+    console.log("check1: window.setTimeout = " + window.setTimeout);
+}
+
+
+
+// This method is called 2 times
+function check2() {
+    console.log("check2: window.setTimeout = " + window.setTimeout);
+}
+
+
+// This method will be called 1 time
+function check3() {
+    console.log("check3: window.setTimeout = " + window.setTimeout);
+}
+
+
+console.log("1. Call method check1 which outputs contents of window.setTimeout");
+check1();
+
+
+console.log("2. Call methods check1 and check2 which both output contents of window.setTimeout");
+check1();
+check2();
+
+
+
+
+console.log("3. Moneky-patch the contents of window.setTimeout with a dummy method which just outputs the words PATCHED");
+
+var oldTimeout = window.setTimeout;
+
+window.setTimeout = function() { console.log("PATCHED"); }
+
+
+
+console.log("4. Call methods check1, check2 and check3 which outputs contents of window.setTimeout.");
+
+// Prints out system setTimeout
+check1();
+
+// Prints Custom setTimeout
+check2();
+
+// Prints Custom setTimeout
+check3();
+
+
+window.setTimeout = oldTimeout;
+
+
+ console.log("5. Note that check3 (which is called once in this file) and check2 (which is called twice) both print out the expected patched setTimeout method. However, check1 (which is called three times) does not. ");
+
+</script>
+
+</head>
+
+<body>
+    
+</body>
+</html>
+
