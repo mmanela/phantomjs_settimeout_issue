@@ -1,6 +1,5 @@
 # Patching window.setTimeout Issue in PhantomJS
 
-
 This is a demonstration of a really strange issue in PhantomJs (tested in versions 1.9 and 2.0). The issue involves what happens when you monkey patch the window.setTimeout method in Javascript. The issue was discovered when debugging test failures that were using sinonJS (which monkey patches setTimeout). I worked through that issue and distilled the minimum repro out of it. 
 
 I validated this issue does not occur in Chrome 41, Firefox 36 and IE 11. As far as I can tell it only repros in PhantomJS.
@@ -63,7 +62,7 @@ window.setTimeout = function () { console.log("PATCHED"); }
 
 ## Runnable Repro
 
-This repro contains a phantomJS application (phantom.js) which will demonstrate this issue. 
+[This repo](https://github.com/mmanela/phantomjs_settimeout_issue) contains a phantomJS application (phantom.js) which will reproduce this issue. 
 
 
 ```
