@@ -1,4 +1,4 @@
-# Overriding window.setTimeout Issue in PhantomJS
+# Patching window.setTimeout Issue in PhantomJS
 
 
 This is a demonstration of a really strange issue in PhantomJs (tested in versions 1.9 and 2.0). The issue involves what happens when you monkey patch the window.setTimeout method in Javascript. The issue was discovered when debugging test failures that were using sinonJS (which monkey patches setTimeout). I worked through that issue and distilled the minimum repro out of it. 
